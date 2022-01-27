@@ -13,18 +13,16 @@ BattleR.init(
     },
     kills: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        
+        allowNull: true,
     },
     wins: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        
+        allowNull: true,
+
     },
     matches_played: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-       
+        allowNull: true,
     }
   },
   {
@@ -32,7 +30,7 @@ BattleR.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'duos',
+    modelName: 'battleR',
   }
 );
 
