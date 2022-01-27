@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
+const { BattleR } = require('./index.js');
 
-class Trios extends Model {}
+class BattleR extends Model {}
 
-Trios.init(
+BattleR.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -38,8 +39,8 @@ Trios.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'trios',
+    modelName: 'duos',
   }
 );
 
-module.exports = Trios;
+module.exports = BattleR;

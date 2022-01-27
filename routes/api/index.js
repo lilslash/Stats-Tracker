@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const duosRoutes = require('./duos-routes');
+const battleRolyaleRoutes = require('./battleR-routes');
 
-router.use('/duos', duosRoutes);
+router.use('/battleRoyale', battleRolyaleRoutes);
 
 module.exports = router;
