@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const battleRolyaleRoutes = require('./battleR-routes');
+const battleRoyaleRoutes = require('./battleR-routes');
 
-router.use('/battleRoyale', battleRolyaleRoutes);
+router.use('/battleRoyale', battleRoyaleRoutes);
 
 module.exports = router;
