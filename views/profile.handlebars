@@ -10,13 +10,18 @@
 
         <form class="form new-stats-form">
             <div class="form-group">
+                <div class="form-group">
                 <label for="game-name">Game:</label>
-                <input class="form-input" type="text" id="game-name" name="game-name" />
+                <select class="form-input" id="game-name" name="game-name">
+                    <option value="Apex">Apex</option>
+                    <option value="Fortnite">Fortnite</option>
+                    <option value="Hyperscape">Hyperscape</option>
+                </select>
             </div>
             {{#if Apex}}
             {{> apex-profile}}
             {{else}}
-            {{!-- <div class="form-group">
+            <div class="form-group">
                 <label for="wins">Wins:</label>
                 <input class="form-input" type="number" id="wins" name="wins" />
             </div>
@@ -27,7 +32,7 @@
             <div class="form-group">
                 <label for="kd-ratio">K/D:</label>
                 <input class="form-input" type="number" id="kd-ratio" name="kd-ratio" />
-            </div> --}}
+            </div>
             {{/if}}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create</button>
