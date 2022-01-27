@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
+const { BattleR } = require('./index.js');
 
 class BattleR extends Model {}
 
