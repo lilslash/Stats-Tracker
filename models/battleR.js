@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
-// const { BattleR } = require('./index.js');
 
 class BattleR extends Model {}
 
@@ -24,7 +23,6 @@ BattleR.init(
     matches_played: {
         type: DataTypes.INTEGER,
         allowNull: true,
-
     }
   },
   {
@@ -35,6 +33,5 @@ BattleR.init(
     modelName: 'battleR',
   }
 );
-
 
 module.exports = BattleR;
