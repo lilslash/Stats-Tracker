@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Stat Trax</title>
+</head>
+
+<body>
+    <div class="flex-column justify-space-around">
+        <header class="display-flex justify-space-between align-center p-2">
+            <h1>
+                <span role="img" aria-label="money">💸</span>
+                <a href="/">Fund My Project!</a>
+            </h1>
+            <nav>
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <a href="/profile">profile</a> |
+                <button class="no-button" id="logout">logout</button>
+                {{else}}
+                <a href="/login">login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main class="container container-fluid mt-5">
+            <!-- Render the sub layout -->
+            <div class="row">
+                <div class="col-auto">
+                    <h2>Welcome, {{name}}!</h2>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Add New Stats</h3>
+
+                    <form class="form new-stats-form">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="game-name">Game:</label>
+                                <select class="form-input" id="game-name" name="game-name">
+                                    <option value="Apex">Apex</option>
+                                    <option value="Fortnite">Fortnite</option>
+                                    <option value="Hyperscape">Hyperscape</option>
+                                </select>
+                            </div>
+                            {{#if Apex}}
+                            {{> apex-profile}}
+                            {{else}}
+                            <div class="form-group">
+                                <label for="wins">Wins:</label>
+                                <input class="form-input" type="number" id="wins" name="wins" />
+                            </div>
+                            <div class="form-group">
+                                <label for="losses">Losses:</label>
+                                <input class="form-input" type="number" id="losses" name="losses" />
+                            </div>
+                            <div class="form-group">
+                                <label for="kd-ratio">K/D:</label>
+                                <input class="form-input" type="number" id="kd-ratio" name="kd-ratio" />
+                            </div>
+                            {{/if}}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                    </form>
+                </div>
+
+                {{#if stats.length}}
+                <div class="col-md-6 project-list">
+                    <h3>Current Stats:</h3>
+
+                    {{#each stats as |stat|}}
+                    <div class="row mb-2">
+                        <div class="col-md-8">
+                            <h4><a href="/players/{{player.id}}">{{player.name}}</a></h4>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+
+            <script src="./js/profile.js"></script>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
