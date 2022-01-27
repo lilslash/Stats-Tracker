@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
-const { BattleR } = require('./index.js');
+// const { BattleR } = require('./index.js');
 
 class BattleR extends Model {}
 
@@ -14,24 +14,17 @@ BattleR.init(
     },
     kills: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          isKills: NUMBER
-        }
+        allowNull: true,
     },
     wins: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          isWins: NUMBER
-        }
+        allowNull: true,
+
     },
     matches_played: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          isMatches: NUMBER
-        }
+        allowNull: true,
+
     }
   },
   {
@@ -39,7 +32,7 @@ BattleR.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'duos',
+    modelName: 'battleR',
   }
 );
 
