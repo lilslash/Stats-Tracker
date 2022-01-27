@@ -11,7 +11,7 @@ const { BattleR } = require('../../models');
 //     }
 //   });
 
-// Create new Duos stats
+// Create new battle royale stats
 router.post('/', async (req, res) => {
     try {
       const battleRoyaleData = await BattleR.create(req.body);
