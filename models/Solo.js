@@ -13,7 +13,7 @@ Solo.init(
         wins: {
             type:DataTypes.INTEGER
         },
-        eliminations: {
+        kills: {
             type:DataTypes.INTEGER
         },
         matchPayed: {
