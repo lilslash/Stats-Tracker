@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
-class Duos extends Model {}
+class BattleR extends Model {}
 
-Duos.init(
+BattleR.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -42,4 +42,4 @@ Duos.init(
   }
 );
 
-module.exports = Duos;
+module.exports = BattleR;
