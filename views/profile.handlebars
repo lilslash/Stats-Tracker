@@ -47,10 +47,10 @@
         {{#each stats as |stat|}}
         <div class="row mb-2">
             <div class="col-md-8">
-                <h4><a href="/players/{{player.id}}">{{player.name}}</a></h4>
+                <h4><a href="/battle-royale/{{user.id}}">{{user.name}}</a></h4>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+                <button class="btn btn-sm btn-danger" data-id="{{user.id}}">DELETE</button>
             </div>
         </div>
         {{/each}}
