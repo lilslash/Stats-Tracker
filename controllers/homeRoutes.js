@@ -26,16 +26,42 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+router.get('/battle-royale/:id', async (req, res) => {
+  try {
+    const battleData = await BattleR.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const battle = battleData.get({plain:true});
+
+    res.render('battle', {
+      ...battle,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      // include: [{model: BattleR}],
+      include: [{model: BattleR}],
     });
 
+    
     const user = userData.get({ plain: true });
+
+    console.log(user);
 
     res.render('profile', {
       ...user,
