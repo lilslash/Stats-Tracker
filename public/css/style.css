@@ -1,8 +1,15 @@
 
 .custom-header {
+    min-height: 100% !important;
     /* background-color: black; */
     color: white;
+    background-image: url("../css/images/trackerLogoWide.png");
+    margin: auto;
+
+
 }
+
+
 
 body {
     background-image: url("../css/images/crazy.gif");
