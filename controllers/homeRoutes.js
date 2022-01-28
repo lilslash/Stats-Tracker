@@ -58,7 +58,10 @@ router.get('/profile', withAuth, async (req, res) => {
       include: [{model: BattleR}],
     });
 
+    
     const user = userData.get({ plain: true });
+
+    console.log(user);
 
     res.render('profile', {
       ...user,
