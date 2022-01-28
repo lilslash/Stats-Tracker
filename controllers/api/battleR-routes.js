@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { BattleR } = require('../../models');
+const { BattleR, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 // Find all Duos stats
@@ -19,9 +20,13 @@ router.get('/', async (req, res) => {
   });
 
 // Create new battle royale stats
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
-      const battleRoyaleData = await BattleR.create(req.body);
+      const battleRoyaleData = await BattleR.create({
+        ...req.body,
+        user_id: req.session.user_id
+      });
+
       res.status(200).json(battleRoyaleData);
     } catch (err) {
       res.status(400).json(err);

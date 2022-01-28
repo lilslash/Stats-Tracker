@@ -1,4 +1,4 @@
-const BattleR = require('./battleR');
+const BattleR = require('./BattleR');
 const User = require('./User');
 
 User.hasMany(BattleR ,{

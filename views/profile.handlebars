@@ -40,17 +40,23 @@
         </form>
     </div>
 
-    {{#if stats.length}}
+    {{#if battles.length}}
     <div class="col-md-6 project-list">
         <h3>Current Stats:</h3>
 
-        {{#each stats as |stat|}}
+        {{#each battles as |battle|}}
         <div class="row mb-2">
             <div class="col-md-8">
-                <h4><a href="/battle-royale/{{user.id}}">{{user.name}}</a></h4>
+                <h4><a href="/battle-royale/">Kills: {{battle.kills}}</a></h4>
+            </div>
+            <div class="col-md-8">
+                <h4><a href="/battle-royale/">Wins: {{battle.wins}}</a></h4>
+            </div>
+            <div class="col-md-8">
+                <h4><a href="/battle-royale/">Matches Played{{battle.matches_played}}</a></h4>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{user.id}}">DELETE</button>
+                <button class="btn btn-sm btn-danger" data-id="{{battle.id}}">DELETE</button>
             </div>
         </div>
         {{/each}}
