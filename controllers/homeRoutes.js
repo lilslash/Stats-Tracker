@@ -4,16 +4,21 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const battleData = await BattleR.findAll();
+    const battleData = await BattleR.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
     const battles = battleData.map((battle) => battle.get({ plain: true }));
 
-    res.render('homepage'
-      // , {
-      // battles,
-      // logged_in: req.session.logged_in
-      // }
-    );
+    res.render('homepage', {
+      battles,
+      logged_in: req.session.logged_in
+    });
 
     console.log(battles);
   } catch (err) {
@@ -27,6 +32,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
+      // include: [{model: BattleR}],
     });
 
     const user = userData.get({ plain: true });

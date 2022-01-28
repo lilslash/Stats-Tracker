@@ -47,16 +47,16 @@
         {{#each battles as |battler|}}
         <div class="row mb-2">
             <div class="col-md-8">
-                <h4><a href="/battle-royale/">Kills: {{battle.kills}}</a></h4>
+                <h4><a href="/battle-royale/">Kills: {{battler.kills}}</a></h4>
             </div>
             <div class="col-md-8">
-                <h4><a href="/battle-royale/">Wins: {{battle.wins}}</a></h4>
+                <h4><a href="/battle-royale/">Wins: {{battler.wins}}</a></h4>
             </div>
             <div class="col-md-8">
-                <h4><a href="/battle-royale/">Matches Played{{battle.matches_played}}</a></h4>
+                <h4><a href="/battle-royale/">Matches Played{{battler.matches_played}}</a></h4>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{battle.id}}">DELETE</button>
+                <button class="btn btn-sm btn-danger" data-id="{{battler.id}}">DELETE</button>
             </div>
         </div>
         {{/each}}

@@ -31,7 +31,6 @@ BattleR.init(
         key: 'id',
       },
     },
-
   },
   {
     sequelize,
