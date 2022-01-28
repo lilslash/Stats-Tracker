@@ -1,5 +1,11 @@
 
 .custom-header {
-    background-color: black;
+    /* background-color: black; */
     color: white;
+}
+
+body {
+    background-image: url("../css/images/crazy.gif");
+    
+    
 }
