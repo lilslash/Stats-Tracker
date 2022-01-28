@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Player, BattleR } = require('../models');
+const { User, BattleR } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -8,10 +8,12 @@ router.get('/', async (req, res) => {
 
         const battles = battleData.map((battle) => battle.get({plain: true}));
 
-        res.render('homepage', {
-            battles,
-            logged_in: req.session.logged_in
-        });
+        res.render('homepage'
+        // , {
+            // battles,
+            // logged_in: req.session.logged_in
+        // }
+        );
 
         console.log(battles);
     } catch (err) {
@@ -48,3 +50,6 @@ router.get('/login', (req, res) => {
   
     res.render('login');
   });
+
+
+  module.exports = router;
