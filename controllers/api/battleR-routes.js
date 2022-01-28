@@ -6,11 +6,6 @@ const withAuth = require('../../utils/auth');
 // Find all Duos stats
 router.get('/', async (req, res) => {
     try {
-      const battleRoyaleData = await BattleR.findAll();
-      res.status(200).json(battleRoyaleData);
-
-router.get('/', async (req, res) => {
-    try {
       const duosData = await BattleR.findAll();
       res.status(200).json(duosData);
 
