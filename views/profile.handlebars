@@ -19,7 +19,6 @@
                             <option value="Hyperscape">Hyperscape</option>
                         </select>
                     </div>
-
                     {{!-- Suggest display data based on game type vs game title --}}
                     
                     <div id="showApex" style="display: none;">
@@ -39,25 +38,25 @@
     </div>
 
     {{#if battleRs.length}}
-    <div class="statz col-md-6 stats-list">
-        <h3>Current Stats:</h3>
+    <div class="battle-r-statz col-md-6 stats-list">
+        <h3>Stats:</h3>
 
         {{#each battleRs as |battle|}}
         <div class="battle-r-block row mb-2">
             <div class="col-md-4">
-                <h4><a href="/battle-royale/">Date: {{format_date date_created}}</a></h4>
+                <h4>Date: {{format_date date_created}}</h4>
             </div>
             <div class="col-md-4">
-                <h4><a href="/battle-royale/">Game: {{battle.game_name}}</a></h4>
+                <h4>Game: {{battle.game_name}}</h4>
             </div>
             <div class="col-md-4">
-                <h4><a href="/battle-royale/">Kills: {{battle.kills}}</a></h4>
+                <h4>Kills: {{battle.kills}}</h4>
             </div>
             <div class="col-md-4">
-                <h4><a href="/battle-royale/">Wins: {{battle.wins}}</a></h4>
+                <h4>Wins: {{battle.wins}}</h4>
             </div>
             <div class="col-md-4">
-                <h4><a href="/battle-royale/">Matches Played: {{battle.matches_played}}</a></h4>
+                <h4>Matches Played: {{battle.matches_played}}</h4>
             </div>
             <div class="col-md-4">
                 <button class="btn btn-sm btn-danger" data-id="{{battle.id}}">DELETE</button>
@@ -66,6 +65,9 @@
         {{/each}}
     </div>
     {{/if}}
+
+    {{!-- 5v5 splitgate: kills, deaths, assists, kd  --}}
+
 </div>
 
 <script src="./js/profile.js"></script>
