@@ -1,10 +1,14 @@
 
 .custom-header {
     min-height: 206px !important;
+    max-width: 1140px;
     /* background-color: black; */
     color: white;
     background-image: url("../css/images/trackerLogoWide.png");
-    margin: auto;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 body {
@@ -19,4 +23,5 @@ body {
 
 .statz {
     background-color: rgba(300, 0, 0, .5);
+
 }
