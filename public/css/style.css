@@ -5,10 +5,7 @@
     color: white;
     background-image: url("../css/images/trackerLogoWide.png");
     margin: auto;
-
-
 }
-
 
 body {
     background-image: url("../css/images/crazy.gif");
@@ -16,6 +13,8 @@ body {
 
 .block {
     background-color: rgba(245, 135, 39, .44);
+    color: white;
+    margin: 5px;
 }
 
 .statz {

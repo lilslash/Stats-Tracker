@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
     const battles = battleData.map((battle) => battle.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('login', {
       battles,
       logged_in: req.session.logged_in
     });
