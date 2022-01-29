@@ -11,6 +11,10 @@ BattleR.init(
       primaryKey: true,
       autoIncrement: true
     },
+    game_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     kills: {
         type: DataTypes.INTEGER,
         allowNull: true,

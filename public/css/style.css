@@ -1,11 +1,22 @@
 
 .custom-header {
+    min-height: 206px !important;
     /* background-color: black; */
     color: white;
+    background-image: url("../css/images/trackerLogoWide.png");
+    margin: auto;
 }
 
 body {
     background-image: url("../css/images/crazy.gif");
-    
-    
+}
+
+.block {
+    background-color: rgba(245, 135, 39, .44);
+    color: white;
+    margin: 5px;
+}
+
+.statz {
+    background-color: rgba(300, 0, 0, .5);
 }
