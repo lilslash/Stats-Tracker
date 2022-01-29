@@ -11,6 +11,7 @@ BattleR.belongsTo(User, {
 });
 
 
+
 module.exports = {
   User,  
   BattleR, 
