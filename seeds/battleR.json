@@ -1,6 +1,7 @@
 [
     {
         "kills": 45,
+        "game_name": "apex",
         "wins": 50,
         "matches_played": 2000
     },
