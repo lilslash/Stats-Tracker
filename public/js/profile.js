@@ -81,6 +81,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log(id);
       document.location.replace('/profile');
     } else {
       alert('Failed to delete stat block');
@@ -92,6 +93,6 @@ document
   .querySelector('.new-stats-form')
   .addEventListener('submit', apexStatsHandler);
 
-// document
-//   .querySelector(`.${data-id}-stat-delete`)
-//   .addEventListener('click', delButtonHandler);
+document
+  .querySelector('.statz')
+  .addEventListener('click', delButtonHandler);
