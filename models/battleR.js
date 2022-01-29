@@ -11,6 +11,10 @@ BattleR.init(
       primaryKey: true,
       autoIncrement: true
     },
+    game_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     kills: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -23,7 +27,14 @@ BattleR.init(
     matches_played: {
         type: DataTypes.INTEGER,
         allowNull: true,
-    }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
