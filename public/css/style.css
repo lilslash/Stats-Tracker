@@ -15,9 +15,9 @@ body {
 }
 
 .block {
-    background-color: orange;
+    background-color: rgba(245, 135, 39, .44);
 }
 
 .statz {
-    background-color: red;
+    background-color: rgba(300, 0, 0, .5);
 }

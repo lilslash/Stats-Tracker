@@ -21,26 +21,16 @@
                     </div>
 
                     {{!-- {{#if Apex}} --}}
-                    <div id="showApex" style="display: block;">
-                        {{> battle-r-profile}}
+                    
+                    <div id="showApex" style="display: none;">
+                        {{> apex}}
                     </div>
-
-                    {{!-- {{else}} --}}
                     <div id="showFortnite" style="display: none;">
-                        <div class="form-group">
-                            <label for="Kills">Kills:</label>
-                            <input class="form-input" type="number" id="fortnite-kills" name="fortnite-kills" />
-                        </div>
-                        <div class="form-group">
-                            <label for="wins">Wins:</label>
-                            <input class="form-input" type="number" id="fortnite-wins" name="fortnite-wins" />
-                        </div>
-                        <div class="form-group">
-                            <label for="matches-played">Matches Played:</label>
-                            <input class="form-input" type="number" id="fortnite-matches-played" name="fortnite-matches-played" />
-                        </div>
+                        {{> fortnite}}
                     </div>
-                    {{!-- {{/if}} --}}
+                    <div id="showHyperscape" style="display: none;">
+                        {{> hyperscape}}
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Create</button>
                     </div>
@@ -64,7 +54,7 @@
                 <h4><a href="/battle-royale/">Wins: {{battle.wins}}</a></h4>
             </div>
             <div class="col-md-8">
-                <h4><a href="/battle-royale/">Matches Played{{battle.matches_played}}</a></h4>
+                <h4><a href="/battle-royale/">Matches Played: {{battle.matches_played}}</a></h4>
             </div>
             <div class="col-md-4">
                 <button class="btn btn-sm btn-danger" data-id="{{battle.id}}">DELETE</button>
