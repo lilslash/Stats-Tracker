@@ -19,9 +19,11 @@ body {
 }
 
 .block {
+    max-width: 100px;
     background-color: rgba(245, 135, 39, .5);
     color: white;
-    margin: 5px;
+    margin: auto;
+    
 }
 
 .battle-r-statz {
