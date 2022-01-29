@@ -16,12 +16,12 @@ body {
 }
 
 .block {
-    background-color: rgba(245, 135, 39, .44);
+    background-color: rgba(245, 135, 39, .5);
     color: white;
     margin: 5px;
 }
 
-.statz {
+.battle-r-statz {
     background-color: rgba(300, 0, 0, .5);
 
 }

@@ -1,11 +1,12 @@
 
-document.querySelector('#game-name').addEventListener("change", gameChoosen);
+document.querySelector('#game-name').addEventListener("change", gameChosen);
 
 let game_name = document.querySelector('#game-name').value;
-gameChoosen();
-function gameChoosen() {
+
+gameChosen();
+
+function gameChosen() {
   game_name = document.querySelector('#game-name').value;
-  console.log("DDL", game_name);
 
   if (game_name === "Apex") {
     //show the partials 
@@ -55,7 +56,6 @@ const apexStatsHandler = async (event) => {
     matches_played = document.querySelector('#hyperscape-matches-played').value.trim();
   }
 
-  console.log("Game data ", game_name, kills, wins, matches_played);
   // Send post request to battle-royale endpoint
   const response = await fetch('/api/battle-royale', {
     method: 'POST',
@@ -81,7 +81,6 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log(id);
       document.location.replace('/profile');
     } else {
       alert('Failed to delete stat block');
@@ -94,5 +93,5 @@ document
   .addEventListener('submit', apexStatsHandler);
 
 document
-  .querySelector('.statz')
+  .querySelector('.battle-r-statz')
   .addEventListener('click', delButtonHandler);
