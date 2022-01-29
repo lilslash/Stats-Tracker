@@ -49,3 +49,5 @@ Shooter.init(
       modelName: 'shooter',
     }
   );
+
+  module.exports = Shooter;
