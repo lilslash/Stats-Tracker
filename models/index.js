@@ -1,6 +1,7 @@
 const BattleR = require('./BattleR');
 const User = require('./User');
 const Request = require('./Request');
+const Shooter = require('./shooter');
 
 User.hasMany(BattleR, {
   foreignKey: 'user_id',
@@ -20,11 +21,20 @@ Request.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+User.hasMany(Shooter, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
+Shooter.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
 
 module.exports = {
   User,  
-  BattleR, 
+  BattleR,
+  Shooter,
+  Request
 };
 
