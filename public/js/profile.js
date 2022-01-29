@@ -72,26 +72,26 @@ const apexStatsHandler = async (event) => {
 
 
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
-//     const response = await fetch(`/api/battle-royale/${id}`, {
-//       method: 'DELETE',
-//     });
+    const response = await fetch(`/api/battle-royale/${id}`, {
+      method: 'DELETE',
+    });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to delete battle');
-//     }
-//   }
-// };
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete stat block');
+    }
+  }
+};
 
 document
   .querySelector('.new-stats-form')
   .addEventListener('submit', apexStatsHandler);
 
 // document
-//   .querySelector('.player-list')
+//   .querySelector(`.${data-id}-stat-delete`)
 //   .addEventListener('click', delButtonHandler);
