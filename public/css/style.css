@@ -1,7 +1,10 @@
 
 .custom-header {
+    display: flex;
+    flex-direction: column;
     min-height: 206px !important;
     max-width: 1140px;
+    min-width: 1140px;
     /* background-color: black; */
     color: white;
     background-image: url("../css/images/trackerLogoWide.png");
