@@ -1,11 +1,10 @@
 
-document.querySelector('#game-name').addEventListener("change", gameChoosen);
+document.querySelector('#game-name').addEventListener("change", gameChosen);
 
 let game_name = document.querySelector('#game-name').value;
-gameChoosen();
-function gameChoosen() {
+gameChosen();
+function gameChosen() {
   game_name = document.querySelector('#game-name').value;
-  console.log("DDL", game_name);
 
   if (game_name === "Apex") {
     //show the partials 
@@ -81,7 +80,6 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log(id);
       document.location.replace('/profile');
     } else {
       alert('Failed to delete stat block');
