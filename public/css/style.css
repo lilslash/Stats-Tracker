@@ -19,7 +19,7 @@ body {
 }
 
 .block {
-    max-width: 100px;
+    max-width: 00px;
     background-color: rgba(245, 135, 39, .5);
     color: white;
     margin: auto;
