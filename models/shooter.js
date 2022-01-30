@@ -21,7 +21,7 @@ Shooter.init(
         defaultValue: DataTypes.NOW,
       },
       kills: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.DECIMAL,
           allowNull: true,
       },
       deaths: {

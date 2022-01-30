@@ -38,7 +38,6 @@ function gameChosen() {
 
 const statsHandler = async (event) => {
   event.preventDefault();
-
   // Collect values from stats form
   //game_name = document.querySelector('#game-name').value;
   if (game_category === "battleR") {
@@ -62,13 +61,13 @@ const statsHandler = async (event) => {
     let deaths = document.querySelector('#shooter-deaths').value.trim();
     let assist = document.querySelector('#shooter-assist').value.trim();
     // calculate the kd ratio based on kills and deaths entered
-    let kd = kills / deaths;
+    // let kd = kills / deaths;
     // _.floor(_.divide(kills, deaths), 2);
 
     // Send post request to ape/shooter endpoint
     const response = await fetch('/api/shooter', {
       method: 'POST',
-      body: JSON.stringify({ game_name, kills, deaths, assist, kd }),
+      body: JSON.stringify({ game_name, kills, deaths, assist }),
       headers: { 'Content-Type': 'application/json' }
     });
     if (response.ok) {
@@ -100,11 +99,32 @@ const statsHandler = async (event) => {
 
 
 
-const delButtonHandler = async (event) => {
+const delBattleHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    if (event.target.getAttribute('id') === 'battle-delete') {
+      const id = event.target.getAttribute('data-id');
+
+      const response = await fetch(`/api/battle-royale/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to delete stat block');
+      }
+    }
+    
+  };
+};
+
+
+const delShooterHandler = async (event) => {
+
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/battle-royale/${id}`, {
+    const response = await fetch(`/api/shooter/${id}`, {
       method: 'DELETE',
     });
 
@@ -112,8 +132,25 @@ const delButtonHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to delete stat block');
-    }
-  }
+    };
+  };
+};
+
+const delValorantHandler = async (event) => {
+
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/valorant/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete stat block');
+    };
+  };
 };
 
 document
@@ -122,4 +159,13 @@ document
 
 document
   .querySelector('.battle-r-statz')
-  .addEventListener('click', delButtonHandler);
+  .addEventListener('click', delBattleHandler);
+
+  document
+  .querySelector('.shooter-statz')
+  .addEventListener('click', delShooterHandler);
+
+  document
+  .querySelector('.valorant-statz')
+  .addEventListener('click', delValorantHandler);
+
