@@ -2,71 +2,99 @@
 document.querySelector('#game-name').addEventListener("change", gameChosen);
 
 let game_name = document.querySelector('#game-name').value;
-
+let game_category;
 gameChosen();
 
 function gameChosen() {
   game_name = document.querySelector('#game-name').value;
 
-  if (game_name === "Apex") {
+  if (game_name === "Apex" || game_name === "Fortnite" || game_name === "Hyperscape") {
+    game_category = "battleR";
     //show the partials 
-    document.querySelector('#showApex').style.display = "block";
-    document.querySelector('#showFortnite').style.display = "none";
-    document.querySelector('#showHyperscape').style.display = "none";
+    document.querySelector('#showBattleR').style.display = "block";
+    document.querySelector('#showShooter').style.display = "none";
+    document.querySelector('#showValorant').style.display = "none";
   }
-  else if (game_name === "Fortnite") {
-    document.querySelector('#showApex').style.display = "none";
-    document.querySelector('#showFortnite').style.display = "block";
-    document.querySelector('#showHyperscape').style.display = "none";
+  else if (game_name === "Halo" || game_name === "CoD: Black Ops") {
+    game_category = "shooter";
+    document.querySelector('#showBattleR').style.display = "none";
+    document.querySelector('#showShooter').style.display = "block";
+    document.querySelector('#showValorant').style.display = "none";
   }
-  else if (game_name === "Hyperscape") {
-    document.querySelector('#showApex').style.display = "none";
-    document.querySelector('#showFortnite').style.display = "none";
-    document.querySelector('#showHyperscape').style.display = "block";
+  else if (game_name === "Valorant") {
+    game_category = "valorant";
+    document.querySelector('#showBattleR').style.display = "none";
+    document.querySelector('#showShooter').style.display = "none";
+    document.querySelector('#showValorant').style.display = "block";
   }
   else {
-    document.querySelector('#showApex').style.display = "none";
-    document.querySelector('#showFortnite').style.display = "none";
-    document.querySelector('#showHyperscape').style.display = "none";
+    game_category = "none";
+    document.querySelector('#showBattleR').style.display = "none";
+    document.querySelector('#showShooter').style.display = "none";
+    document.querySelector('#showValorant').style.display = "none";
   }
 }
 
 
-const apexStatsHandler = async (event) => {
+const statsHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from stats form
   //game_name = document.querySelector('#game-name').value;
-  let kills;
-  let wins;
-  let matches_played;
+  if (game_category === "battleR") {
+    let kills = document.querySelector('#battle-r-kills').value.trim();
+    let wins = document.querySelector('#battle-r-wins').value.trim();
+    let matches_played = document.querySelector('#battle-r-matches-played').value.trim();
 
-  if (game_name === "Apex") {
-    kills = document.querySelector('#apex-kills').value.trim();
-    wins = document.querySelector('#apex-wins').value.trim();
-    matches_played = document.querySelector('#apex-matches-played').value.trim();
-  } else if (game_name === "Fortnite") {
-    kills = document.querySelector('#fortnite-kills').value.trim();
-    wins = document.querySelector('#fortnite-wins').value.trim();
-    matches_played = document.querySelector('#fortnite-matches-played').value.trim();
+    const response = await fetch('/api/battle-royale', {
+      method: 'POST',
+      body: JSON.stringify({ game_name, kills, wins, matches_played }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to add stats');
+    };
   }
-  else if (game_name === "Hyperscape") {
-    kills = document.querySelector('#hyperscape-kills').value.trim();
-    wins = document.querySelector('#hyperscape-wins').value.trim();
-    matches_played = document.querySelector('#hyperscape-matches-played').value.trim();
+  else if (game_category === "shooter") {
+    let kills = document.querySelector('#shooter-kills').value.trim();
+    let deaths = document.querySelector('#shooter-deaths').value.trim();
+    let assist = document.querySelector('#shooter-assist').value.trim();
+    // calculate the kd ratio based on kills and deaths entered
+    let kd = kills / deaths;
+    // _.floor(_.divide(kills, deaths), 2);
+
+    // Send post request to ape/shooter endpoint
+    const response = await fetch('/api/shooter', {
+      method: 'POST',
+      body: JSON.stringify({ game_name, kills, deaths, assist, kd }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to add stats');
+    }
   }
+  else if (game_category === "valorant") {
+    let character = document.querySelector('#valorant-agent').value.trim();
+    let kills = document.querySelector('#valorant-kills').value.trim();
+    let deaths = document.querySelector('#valorant-deaths').value.trim();
+    let assist = document.querySelector('#valorant-assist').value.trim();
+    let game_count = document.querySelector('#valorant-game-count').value.trim();
 
-  // Send post request to battle-royale endpoint
-  const response = await fetch('/api/battle-royale', {
-    method: 'POST',
-    body: JSON.stringify({ game_name, kills, wins, matches_played }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-
-  if (response.ok) {
-    document.location.replace('/profile');
-  } else {
-    alert('Failed to add stats');
+    // Send post request to ape/valorant endpoint
+    const response = await fetch('/api/valorant', {
+      method: 'POST',
+      body: JSON.stringify({ character, game_name, kills, deaths, assist, game_count }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to add stats');
+    };
   };
 };
 
@@ -90,7 +118,7 @@ const delButtonHandler = async (event) => {
 
 document
   .querySelector('.new-stats-form')
-  .addEventListener('submit', apexStatsHandler);
+  .addEventListener('submit', statsHandler);
 
 document
   .querySelector('.battle-r-statz')

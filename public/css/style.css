@@ -19,7 +19,7 @@ body {
 }
 
 .block {
-    max-width: 100px;
+    max-width: 100%;
     background-color: rgba(245, 135, 39, .5);
     color: white;
     margin: auto;
@@ -29,4 +29,12 @@ body {
 .battle-r-statz {
     background-color: rgba(300, 0, 0, .5);
 
+}
+
+.shooter-statz{
+    background-color: rgba(0, 0, 300, .5);
+}
+
+.valorant-statz {
+    background-color: rgba(0, 300, 0, 0.5);
 }

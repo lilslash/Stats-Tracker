@@ -33,6 +33,10 @@ Shooter.init(
           type: DataTypes.INTEGER,
           allowNull: true,
       },
+      kd: {
+        type: DataTypes.DECIMAL,
+        allowNull: true
+      },
       user_id: {
         type: DataTypes.INTEGER,
         references: {
