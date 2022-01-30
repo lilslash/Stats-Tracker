@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
-class Shooter extends Model {}
+class Valorant extends Model {}
 
-Shooter.init(
+Valorant.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -20,6 +20,10 @@ Shooter.init(
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
+      character: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       kills: {
           type: DataTypes.INTEGER,
           allowNull: true,
@@ -32,6 +36,10 @@ Shooter.init(
       assist: {
           type: DataTypes.INTEGER,
           allowNull: true,
+      },
+      game_count: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       user_id: {
         type: DataTypes.INTEGER,
@@ -46,7 +54,7 @@ Shooter.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'shooter',
+      modelName: 'Valorant',
     }
   );
-  module.exports = Shooter
+  module.exports = Valorant
