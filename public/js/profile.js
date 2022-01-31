@@ -63,8 +63,9 @@ const statsHandler = async (event) => {
     let deaths = document.querySelector('#shooter-deaths').value.trim();
     let assist = document.querySelector('#shooter-assist').value.trim();
     // calculate the kd ratio based on kills and deaths entered
-    // let kd = kills / deaths;
-    // _.floor(_.divide(kills, deaths), 2);
+    
+    let result = _.round(_.divide(kills, deaths), 2);
+    console.log(result);
 
     // Send post request to ape/shooter endpoint
     const response = await fetch('/api/shooter', {
