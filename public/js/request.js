@@ -1,5 +1,5 @@
 const requestHandler = async (event) => {
-    event.preventDefault();
+
     console.log("hello world")
     let game_name = document.querySelector('#game-request').value.trim();
     const response = await fetch('/api/request', {
