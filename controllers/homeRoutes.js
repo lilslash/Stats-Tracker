@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, BattleR } = require('../models');
+const { User, BattleR, Shooter, Valorant } = require('../models');
 const Request = require('../models/Request');
 const withAuth = require('../utils/auth');
 
@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in
     });
 
-    console.log(battles);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -56,13 +55,10 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{model: BattleR}],
+      include: [{model: BattleR}, {model: Shooter}, {model: Valorant}],
     });
 
-    
     const user = userData.get({ plain: true });
-
-    console.log(user);
 
     res.render('profile', {
       ...user,
@@ -84,24 +80,7 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/request', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{model: Request}],
-    });
-
-    const user = userData.get({ plain: true });
-
-    console.log(user);
-
-    res.render('request', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  res.render('request')
 });
 
 module.exports = router;

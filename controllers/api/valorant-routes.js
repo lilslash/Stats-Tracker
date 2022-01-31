@@ -1,13 +1,12 @@
 const router = require('express').Router();
-const { User, Shooter } = require('../../models');
+const { User, Valorant } = require('../../models');
 const withAuth = require('../../utils/auth');
-const _ = require('lodash');
 
 
 router.get('/', async (req, res) => {
   try {
-    const shooterData = await Shooter.findAll();
-    res.status(200).json(shooterData);
+    const valorantData = await Valorant.findAll();
+    res.status(200).json(valorantData);
 
   } catch (err) {
     res.status(500).json(err);
@@ -17,14 +16,12 @@ router.get('/', async (req, res) => {
 // Create new shooter stats
 router.post('/', withAuth, async (req, res) => {
   try {
-    let div = _.divide(req.body.kills, req.body.deaths);
-    let k_d = _.floor(div, 2);
-    const shooterData = await Shooter.create({
+    const valorantData = await Valorant.create({
       ...req.body,
-      kd: k_d,
       user_id: req.session.user_id
     });
-    res.status(200).json(shooterData);
+
+    res.status(200).json(valorantData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -32,17 +29,17 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const shooterData = await Shooter.destroy({
+    const valorantData = await Valorant.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       }
     });
-    if (!shooterData) {
+    if (!valorantData) {
       res.status(404).json({ message: 'No stat block found with this id'});
       return;
     }
-    res.status(200).json(shooterData);
+    res.status(200).json(valorantData);
   } catch (err) {
     res.status(500).json(err);
   }
