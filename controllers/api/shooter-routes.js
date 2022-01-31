@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 // Create new shooter stats
 router.post('/', withAuth, async (req, res) => {
   try {
-    let div = req.body.kills / req.body.deaths;
+    let div = _.divide(req.body.kills, req.body.deaths);
     let k_d = _.floor(div, 2);
     const shooterData = await Shooter.create({
       ...req.body,
