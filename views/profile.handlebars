@@ -11,7 +11,7 @@
                     <h3>Add New Stats</h3>
 
                     <form class="form new-stats-form">
-                        <div class="form-group col-10">
+                        <div class="form-group col-12">
                             <div class="form-group mb-3">
                                 <label for="game-name" class="col-sm-4 col-form-label custom-label">Game:</label>
                                 <select class="form-input col-sm-6" id="game-name" name="game-name">
@@ -33,7 +33,7 @@
                             <div id="showValorant" style="display: none;">
                                 {{> valorant}}
                             </div>
-                            <div class="form-group mt-3 mb-3">
+                            <div class="form-group mt-3 col-12">
                                 <button type="submit" class="btn btn-primary cssbtn">Submit</button>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                 <div class="col-md-12">
                     <h4>Matches Played: {{battle.matches_played}}</h4>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <button class="stat-delete btn btn-sm btn-danger cssbtn" id="battle-delete"
                         data-id="{{battle.id}}">DELETE</button>
                 </div>
@@ -133,7 +133,7 @@
                 <div class="col-md-12">
                     <h4>Game Count: {{fight.game_count}}</h4>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <button class="stat-delete btn btn-sm btn-danger cssbtn" id="valorant-delete"
                         data-id="{{fight.id}}">DELETE</button>
                 </div>
