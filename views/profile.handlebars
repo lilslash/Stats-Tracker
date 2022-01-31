@@ -11,7 +11,7 @@
                     <h3>Add New Stats</h3>
 
                     <form class="form new-stats-form">
-                        <div class="form-group">
+                        <div class="form-group col-10">
                             <div class="form-group mb-3">
                                 <label for="game-name" class="col-sm-4 col-form-label custom-label">Game:</label>
                                 <select class="form-input col-sm-6" id="game-name" name="game-name">
@@ -36,6 +36,7 @@
                             <div class="form-group mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -49,11 +50,11 @@
 
             {{#each battleRs as |battle|}}
             <div class="battle-r-block row m-2 p-2">
-                <div class="col-md-12">
-                    <h4>Date: {{format_date date_created}}</h4>
+                <div class="game-title col-md-12">
+                    <h4>{{battle.game_name}}</h4>
                 </div>
                 <div class="col-md-12">
-                    <h4>Game: {{battle.game_name}}</h4>
+                    <h4>Date: {{format_date date_created}}</h4>
                 </div>
                 <div class="col-md-12">
                     <h4>Kills: {{battle.kills}}</h4>
@@ -65,7 +66,7 @@
                     <h4>Matches Played: {{battle.matches_played}}</h4>
                 </div>
                 <div class="col-md-4">
-                    <button class="battle-delete btn btn-sm btn-danger" id="battle-delete"
+                    <button class="stat-delete btn btn-sm btn-danger" id="battle-delete"
                         data-id="{{battle.id}}">DELETE</button>
                 </div>
             </div>
@@ -79,11 +80,11 @@
             <h3>Shooter Stats:</h3>
             {{#each shooters as |shooter|}}
             <div class="shooter-block row m-2 p-2">
-                <div class="col-md-12">
-                    <h4>Date: {{format_date date_created}}</h4>
+                <div class="game-title col-md-12">
+                    <h4>{{shooter.game_name}}</h4>
                 </div>
                 <div class="col-md-12">
-                    <h4>Game: {{shooter.game_name}}</h4>
+                    <h4>Date: {{format_date date_created}}</h4>
                 </div>
                 <div class="col-md-12">
                     <h4>Kills: {{shooter.kills}}</h4>
@@ -98,7 +99,7 @@
                     <h4>K/D: {{shooter.kd}}</h4>
                 </div>
                 <div class="col-md-12">
-                    <button class="shooter-delete btn btn-sm btn-danger" id="shooter-delete"
+                    <button class="stat-delete btn btn-sm btn-danger" id="shooter-delete"
                         data-id="{{shooter.id}}">DELETE</button>
                 </div>
             </div>
@@ -111,11 +112,11 @@
             <h3>5v5 Stats:</h3>
             {{#each Valorants as |fight|}}
             <div class="valorant-block row m-2 p-2">
-                <div class="col-md-12">
-                    <h4>Date: {{format_date date_created}}</h4>
+                 <div class="game-title col-md-12">
+                    <h4>{{fight.game_name}}</h4>
                 </div>
                 <div class="col-md-12">
-                    <h4>Game: {{fight.game_name}}</h4>
+                    <h4>Date: {{format_date date_created}}</h4>
                 </div>
                 <div class="col-md-12">
                     <h4>Agent: {{fight.character}}</h4>
@@ -133,7 +134,7 @@
                     <h4>Game Count: {{fight.game_count}}</h4>
                 </div>
                 <div class="col-md-4">
-                    <button class="valorant-delete btn btn-sm btn-danger" id="valorant-delete"
+                    <button class="stat-delete btn btn-sm btn-danger" id="valorant-delete"
                         data-id="{{fight.id}}">DELETE</button>
                 </div>
             </div>
