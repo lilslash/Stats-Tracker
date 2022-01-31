@@ -62,7 +62,7 @@
                 <h4>Matches Played: {{battle.matches_played}}</h4>
             </div>
             <div class="col-md-4">
-                <button class="battle-delete btn btn-sm btn-danger" data-id="{{battle.id}}">DELETE</button>
+                <button class="battle-delete btn btn-sm btn-danger" id="battle-delete" data-id="{{battle.id}}">DELETE</button>
             </div>
         </div>
         {{/each}}
@@ -94,7 +94,7 @@
                 <h4>K/D: {{shooter.kd}}</h4>
             </div>
             <div class="col-md-4">
-                <button class="shooter-delete btn btn-sm btn-danger" data-id="{{shooter.id}}">DELETE</button>
+                <button class="shooter-delete btn btn-sm btn-danger" id="shooter-delete" data-id="{{shooter.id}}">DELETE</button>
             </div>
         </div>
         {{/each}}
@@ -105,7 +105,7 @@
     <div class="valorant-statz col-md-5 stats-list">
         <h3>Stats:</h3>
         {{#each Valorants as |fight|}}
-        <div class="shooter-block row mb-2">
+        <div class="valorant-block row mb-2">
             <div class="col-md-4">
                 <h4>Date: {{format_date date_created}}</h4>
             </div>
@@ -113,7 +113,7 @@
                 <h4>Game: {{fight.game_name}}</h4>
             </div>
             <div class="col-md-4">
-                <h4>Agent {{fight.character}}</h4>
+                <h4>Agent: {{fight.character}}</h4>
             </div>
             <div class="col-md-4">
                 <h4>Kills: {{fight.kills}}</h4>
@@ -128,7 +128,7 @@
                 <h4>Game Count: {{fight.game_count}}</h4>
             </div>
             <div class="col-md-4">
-                <button class="valorant-delete btn btn-sm btn-danger" data-id="{{fight.id}}">DELETE</button>
+                <button class="valorant-delete btn btn-sm btn-danger" id="valorant-delete" data-id="{{fight.id}}">DELETE</button>
             </div>
         </div>
         {{/each}}
