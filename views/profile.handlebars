@@ -1,10 +1,11 @@
-<div class="block ">
+<div class="profile-body ">
+<div class="block">
     <div class="d-block row justify-content-center">
         <div class="welcome col-auto mt-3">
             <h2>Welcome, {{name}}!</h2>
         </div>
     </div>
-    <div class="d-block row mt-4 justify-content-center">
+    <div class="block d-block row mt-4 justify-content-center">
         <div class="col-md-6">
             <h3>Add New Stats</h3>
 
@@ -22,8 +23,6 @@
                             <option value="Valorant">Valorant</option>
                         </select>
                     </div>
-                    {{!-- Suggest display data based on game type vs game title --}}
-
                     <div id="showBattleR" style="display: none;">
                         {{> battle-r}}
                     </div>
@@ -39,105 +38,105 @@
             </form>
         </div>
     </div>
+</div>
 
-    {{#if battleRs.length}}
-    <div class="battle-r-statz col-md-5 stats-list mb-2">
-        <h3>Battle Royale Stats:</h3>
+{{#if battleRs.length}}
+<div class="battle-r-statz col-md-5 stats-list mb-2">
+    <h3>Battle Royale Stats:</h3>
 
-        {{#each battleRs as |battle|}}
-        <div class="battle-r-block row m-2 p-2">
-            <div class="col-md-4">
-                <h4>Date: {{format_date date_created}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Game: {{battle.game_name}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Kills: {{battle.kills}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Wins: {{battle.wins}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Matches Played: {{battle.matches_played}}</h4>
-            </div>
-            <div class="col-md-4">
-                <button class="battle-delete btn btn-sm btn-danger" id="battle-delete"
-                    data-id="{{battle.id}}">DELETE</button>
-            </div>
+    {{#each battleRs as |battle|}}
+    <div class="battle-r-block row m-2 p-2">
+        <div class="col-md-4">
+            <h4>Date: {{format_date date_created}}</h4>
         </div>
-        {{/each}}
-    </div>
-    {{/if}}
-
-
-    {{#if shooters.length}}
-    <div class="shooter-statz col-md-5 stats-list">
-        <h3>Shooter Stats:</h3>
-        {{#each shooters as |shooter|}}
-        <div class="shooter-block row m-2 p-2">
-            <div class="col-md-4">
-                <h4>Date: {{format_date date_created}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Game: {{shooter.game_name}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Kills: {{shooter.kills}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Deaths: {{shooter.deaths}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Assists: {{shooter.assist}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>K/D: {{shooter.kd}}</h4>
-            </div>
-            <div class="col-md-4">
-                <button class="shooter-delete btn btn-sm btn-danger" id="shooter-delete"
-                    data-id="{{shooter.id}}">DELETE</button>
-            </div>
+        <div class="col-md-4">
+            <h4>Game: {{battle.game_name}}</h4>
         </div>
-        {{/each}}
-    </div>
-    {{/if}}
-
-    {{#if Valorants.length}}
-    <div class="valorant-statz col-md-5 stats-list">
-        <h3>5v5 Stats:</h3>
-        {{#each Valorants as |fight|}}
-        <div class="valorant-block row m-2 p-2">
-            <div class="col-md-4">
-                <h4>Date: {{format_date date_created}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Game: {{fight.game_name}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Agent: {{fight.character}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Kills: {{fight.kills}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Deaths: {{fight.deaths}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Assists: {{fight.assist}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Game Count: {{fight.game_count}}</h4>
-            </div>
-            <div class="col-md-4">
-                <button class="valorant-delete btn btn-sm btn-danger" id="valorant-delete"
-                    data-id="{{fight.id}}">DELETE</button>
-            </div>
+        <div class="col-md-4">
+            <h4>Kills: {{battle.kills}}</h4>
         </div>
-        {{/each}}
+        <div class="col-md-4">
+            <h4>Wins: {{battle.wins}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Matches Played: {{battle.matches_played}}</h4>
+        </div>
+        <div class="col-md-4">
+            <button class="battle-delete btn btn-sm btn-danger" id="battle-delete"
+                data-id="{{battle.id}}">DELETE</button>
+        </div>
     </div>
-    {{/if}}
+    {{/each}}
+</div>
+{{/if}}
 
+
+{{#if shooters.length}}
+<div class="shooter-statz col-md-5 stats-list">
+    <h3>Shooter Stats:</h3>
+    {{#each shooters as |shooter|}}
+    <div class="shooter-block row m-2 p-2">
+        <div class="col-md-4">
+            <h4>Date: {{format_date date_created}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Game: {{shooter.game_name}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Kills: {{shooter.kills}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Deaths: {{shooter.deaths}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Assists: {{shooter.assist}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>K/D: {{shooter.kd}}</h4>
+        </div>
+        <div class="col-md-4">
+            <button class="shooter-delete btn btn-sm btn-danger" id="shooter-delete"
+                data-id="{{shooter.id}}">DELETE</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+{{#if Valorants.length}}
+<div class="valorant-statz col-md-5 stats-list">
+    <h3>5v5 Stats:</h3>
+    {{#each Valorants as |fight|}}
+    <div class="valorant-block row m-2 p-2">
+        <div class="col-md-4">
+            <h4>Date: {{format_date date_created}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Game: {{fight.game_name}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Agent: {{fight.character}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Kills: {{fight.kills}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Deaths: {{fight.deaths}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Assists: {{fight.assist}}</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Game Count: {{fight.game_count}}</h4>
+        </div>
+        <div class="col-md-4">
+            <button class="valorant-delete btn btn-sm btn-danger" id="valorant-delete"
+                data-id="{{fight.id}}">DELETE</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
 </div>
 
 <script src="./js/profile.js"></script>

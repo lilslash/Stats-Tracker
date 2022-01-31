@@ -39,13 +39,14 @@ nav {
 }
   
 .no-button:hover {
-color: #065b83;
-text-decoration: underline;
+    color: #065b83;
+    text-decoration: underline;
 }
 
 body {
     background-image: url("../css/images/place-detail-map3.jpg");
 }
+
 
 .block {
     background-color: rgb(245, 135, 39);
