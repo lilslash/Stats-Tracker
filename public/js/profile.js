@@ -5,6 +5,8 @@ let game_name = document.querySelector('#game-name').value;
 let game_category;
 gameChosen();
 
+
+// Will only display input queries relevant to the games chosen
 function gameChosen() {
   game_name = document.querySelector('#game-name').value;
 
@@ -101,26 +103,21 @@ const statsHandler = async (event) => {
 
 const delBattleHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
-    if (event.target.getAttribute('id') === 'battle-delete') {
-      const id = event.target.getAttribute('data-id');
+    const id = event.target.getAttribute('data-id');
 
-      const response = await fetch(`/api/battle-royale/${id}`, {
-        method: 'DELETE',
-      });
+    const response = await fetch(`/api/battle-royale/${id}`, {
+      method: 'DELETE',
+    });
 
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to delete stat block');
-      }
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete stat block');
     }
-    
   };
 };
 
-
 const delShooterHandler = async (event) => {
-
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -137,7 +134,6 @@ const delShooterHandler = async (event) => {
 };
 
 const delValorantHandler = async (event) => {
-
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
@@ -153,19 +149,27 @@ const delValorantHandler = async (event) => {
   };
 };
 
+
 document
   .querySelector('.new-stats-form')
   .addEventListener('submit', statsHandler);
 
-document
+  
+if (document.querySelector('.battle-r-statz')) {
+  document
   .querySelector('.battle-r-statz')
   .addEventListener('click', delBattleHandler);
+};
 
-  document
+if (document.querySelector('.shooter-statz')) {
+document
   .querySelector('.shooter-statz')
   .addEventListener('click', delShooterHandler);
+};
 
+if (document.querySelector('.valorant-statz')) {
   document
   .querySelector('.valorant-statz')
   .addEventListener('click', delValorantHandler);
+};
 
