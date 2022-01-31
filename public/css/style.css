@@ -60,17 +60,35 @@ body {
     text-align: center;
 }
 
-.battle-r-block {
-    background-color: rgba(300, 0, 0, .5);
+.battle-r-statz {
+    background-color: tan;
+    padding: 1%;
+    margin: 1%;
+}
 
+.battle-r-block {
+    background-color: rgb(300, 0, 0);
+
+}
+
+.shooter-statz {
+    background-color: tan;
+    padding: 1%;
+    margin: 1%;
 }
 
 .shooter-block{
-    background-color: rgba(0, 0, 300, .5);
+    background-color: rgb(0, 0, 300);
+}
+
+.valorant-statz {
+    background-color: tan;
+    padding: 1%;
+    margin: 1%;
 }
 
 .valorant-block {
-    background-color: rgba(0, 300, 0, 0.5);
+    background-color: rgb(0, 300, 0);
 }
 
 footer {
