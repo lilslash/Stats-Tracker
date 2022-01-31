@@ -26,7 +26,10 @@ nav {
     font-size: x-large;
     background-color: rgba(100, 100, 100, .8);
     margin: 0% 2%;
+    max-height: 60px;
+    top: 100px;
 }
+
 
 .no-button {
     background: none;
@@ -118,18 +121,34 @@ body {
     font-size: 100px;
     color: white;
 }
+/* button{
+    display: block;
+    font-size: 24px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding: 10px;
+    letter-spacing: 2px;
+    transition: all .25s;
+  }
+  
+  a:hover{
+    letter-spacing: 15px;
+  }
+   */
 
 
 
-
-button {
+.cssbtn {
     border-radius: 4px;
     background-color: #5ca1e1;
     border: none;
     color: #fff;
     text-align: center;
-    font-size: 32px;
-    padding: 16px;
+    font-size: 20px;
+    padding: 6px;
     width: 220px;
     transition: all 0.5s;
     cursor: pointer;
@@ -137,14 +156,14 @@ button {
     box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
   }
   
-  button{
+  .cssbtn{
     cursor: pointer;
-    display: inline-block;
+    /* display: inline-block; */
     position: relative;
     transition: 0.5s;
   }
   
-  button:after {
+  .cssbtn:after {
     content: '»';
     position: absolute;
     opacity: 0;  
@@ -153,12 +172,12 @@ button {
     transition: 0.5s;
   }
   
-  button:hover{
+  .cssbtn:hover{
     padding-right: 24px;
     padding-left:8px;
   }
   
-  button:hover:after {
+  .cssbtn:hover:after {
     opacity: 1;
     right: 10px;
   }
