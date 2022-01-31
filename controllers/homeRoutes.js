@@ -80,7 +80,9 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/request', withAuth, async (req, res) => {
-  res.render('request')
+  res.render('request', {
+    logged_in: true
+  });
 });
 
 module.exports = router;
