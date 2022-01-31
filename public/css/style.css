@@ -25,7 +25,7 @@ nav {
     text-align: center;
     font-size: x-large;
     background-color: rgba(100, 100, 100, .8);
-    margin: 0% 5%;
+    margin: 0% 2%;
 }
 
 .no-button {
@@ -47,6 +47,9 @@ body {
     background-image: url("../css/images/place-detail-map3.jpg");
 }
 
+.profile-body {
+    color: white;
+}
 
 .block {
     background-color: rgb(245, 135, 39);
@@ -67,40 +70,61 @@ body {
 }
 
 .battle-r-statz {
+    text-align: center;
     background-color: tan;
     padding: 1%;
     margin: 1%;
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 25px;
+    max-width: 600px;
 }
 
 .battle-r-block {
-    background-color: rgb(300, 0, 0);
-
+    background-color: rgb(150, 150, 0);
+    border-radius: 25px;
 }
 
 .shooter-statz {
+    text-align: center;
     background-color: tan;
     padding: 1%;
     margin: 1%;
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 25px;
+    max-width: 600px;
 }
 
 .shooter-block{
-    background-color: rgb(0, 0, 300);
+    background-color: rgb(150, 0, 150);
+    border-radius: 25px;
 }
 
 .valorant-statz {
+    text-align: center;
     background-color: tan;
     padding: 1%;
     margin: 1%;
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 25px;
+    max-width: 600px;
 }
 
 .valorant-block {
-    background-color: rgb(0, 300, 0);
+    background-color: rgb(0, 150, 150);
+    border-radius: 25px;
+}
+
+.game-title {
+    font-size: 100px;
+    color: white;
 }
 
 footer {
     text-align: center;
     background-color: rgb(0, 150, 150);
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    padding: 0% 3%;
 }
 
