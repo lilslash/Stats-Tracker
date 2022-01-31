@@ -25,6 +25,7 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id
     });
     res.status(200).json(shooterData);
+    console.log(k_d)
   } catch (err) {
     res.status(400).json(err);
   }
