@@ -34,7 +34,7 @@ Shooter.init(
           allowNull: true,
       },
       kd: {
-        type: DataTypes.DECIMAL(10, 2),
+        type: DataTypes.DECIMAL(10,2),
         allowNull: true
       },
       user_id: {
