@@ -21,7 +21,7 @@ Shooter.init(
         defaultValue: DataTypes.NOW,
       },
       kills: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.DECIMAL,
           allowNull: true,
       },
       deaths: {
@@ -32,6 +32,10 @@ Shooter.init(
       assist: {
           type: DataTypes.INTEGER,
           allowNull: true,
+      },
+      kd: {
+        type: DataTypes.DECIMAL,
+        allowNull: true
       },
       user_id: {
         type: DataTypes.INTEGER,

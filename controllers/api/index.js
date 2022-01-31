@@ -11,5 +11,4 @@ router.use('/request', request);
 router.use('/shooter', shooter);
 router.use('/valorant', valorant);
 
-
 module.exports = router;

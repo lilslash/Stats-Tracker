@@ -1,73 +1,147 @@
-<div class="block">
+<div class="profile-body">
+    <div>
+        <div class="block col-6">
+            <div class="d-block row">
+                <div class="welcome col-auto mt-3">
+                    <h2>Welcome, {{name}}!</h2>
+                </div>
+            </div>
+            <div class="d-block row mt-4 justify-content-center">
+                <div class="col-md-12">
+                    <h3>Add New Stats</h3>
+
+                    <form class="form new-stats-form">
+                        <div class="form-group col-10">
+                            <div class="form-group mb-3">
+                                <label for="game-name" class="col-sm-4 col-form-label custom-label">Game:</label>
+                                <select class="form-input col-sm-6" id="game-name" name="game-name">
+                                    <option value="None">Choose Game</option>
+                                    <option value="Apex">Apex</option>
+                                    <option value="Fortnite">Fortnite</option>
+                                    <option value="Hyperscape">Hyperscape</option>
+                                    <option value="Halo">Halo</option>
+                                    <option value="CoD: Black Ops">Call of Duty: Black Ops</option>
+                                    <option value="Valorant">Valorant</option>
+                                </select>
+                            </div>
+                            <div id="showBattleR" style="display: none;">
+                                {{> battle-r}}
+                            </div>
+                            <div id="showShooter" style="display: none;">
+                                {{> shooter}}
+                            </div>
+                            <div id="showValorant" style="display: none;">
+                                {{> valorant}}
+                            </div>
+                            <div class="form-group mt-3 mb-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
-        <div class="col-auto">
-            <h2>Welcome, {{name}}!</h2>
+        {{#if battleRs.length}}
+        <div class="battle-r-statz col-md col-sm-4 stats-list mb-2">
+            <h3>Battle Royale Stats:</h3>
+
+            {{#each battleRs as |battle|}}
+            <div class="battle-r-block row m-2 p-2">
+                <div class="game-title col-md-12">
+                    <h4>{{battle.game_name}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Date: {{format_date date_created}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Kills: {{battle.kills}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Wins: {{battle.wins}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Matches Played: {{battle.matches_played}}</h4>
+                </div>
+                <div class="col-md-4">
+                    <button class="stat-delete btn btn-sm btn-danger" id="battle-delete"
+                        data-id="{{battle.id}}">DELETE</button>
+                </div>
+            </div>
+            {{/each}}
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h3>Add New Stats</h3>
+        {{/if}}
 
-            <form class="form new-stats-form">
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="game-name">Game:</label>
-                        <select class="form-input" id="game-name" name="game-name">
-                            <option value="None">Choose Game</option>
-                            <option value="Apex">Apex</option>
-                            <option value="Fortnite">Fortnite</option>
-                            <option value="Hyperscape">Hyperscape</option>
-                        </select>
-                    </div>
-                    {{!-- Suggest display data based on game type vs game title --}}
-                    
-                    <div id="showApex" style="display: none;">
-                        {{> apex}}
-                    </div>
-                    <div id="showFortnite" style="display: none;">
-                        {{> fortnite}}
-                    </div>
-                    <div id="showHyperscape" style="display: none;">
-                        {{> hyperscape}}
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </div>
-            </form>
+
+        {{#if shooters.length}}
+        <div class="shooter-statz col-md col-sm-4 stats-list">
+            <h3>Shooter Stats:</h3>
+            {{#each shooters as |shooter|}}
+            <div class="shooter-block row m-2 p-2">
+                <div class="game-title col-md-12">
+                    <h4>{{shooter.game_name}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Date: {{format_date date_created}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Kills: {{shooter.kills}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Deaths: {{shooter.deaths}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Assists: {{shooter.assist}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>K/D: {{shooter.kd}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <button class="stat-delete btn btn-sm btn-danger" id="shooter-delete"
+                        data-id="{{shooter.id}}">DELETE</button>
+                </div>
+            </div>
+            {{/each}}
         </div>
-    </div>
+        {{/if}}
 
-    {{#if battleRs.length}}
-    <div class="battle-r-statz col-md-6 stats-list">
-        <h3>Stats:</h3>
-
-        {{#each battleRs as |battle|}}
-        <div class="battle-r-block row mb-2">
-            <div class="col-md-4">
-                <h4>Date: {{format_date date_created}}</h4>
+        {{#if Valorants.length}}
+        <div class="valorant-statz col-md col-sm-4 stats-list">
+            <h3>5v5 Stats:</h3>
+            {{#each Valorants as |fight|}}
+            <div class="valorant-block row m-2 p-2">
+                 <div class="game-title col-md-12">
+                    <h4>{{fight.game_name}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Date: {{format_date date_created}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Agent: {{fight.character}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Kills: {{fight.kills}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Deaths: {{fight.deaths}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Assists: {{fight.assist}}</h4>
+                </div>
+                <div class="col-md-12">
+                    <h4>Game Count: {{fight.game_count}}</h4>
+                </div>
+                <div class="col-md-4">
+                    <button class="stat-delete btn btn-sm btn-danger" id="valorant-delete"
+                        data-id="{{fight.id}}">DELETE</button>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h4>Game: {{battle.game_name}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Kills: {{battle.kills}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Wins: {{battle.wins}}</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Matches Played: {{battle.matches_played}}</h4>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{battle.id}}">DELETE</button>
-            </div>
+            {{/each}}
         </div>
-        {{/each}}
+        {{/if}}
     </div>
-    {{/if}}
-
-    {{!-- 5v5 splitgate: kills, deaths, assists, kd  --}}
-
 </div>
 
 <script src="./js/profile.js"></script>
